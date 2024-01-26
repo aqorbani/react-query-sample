@@ -10,9 +10,10 @@ const Users = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["users"],
     queryFn: getUsers,
-    gcTime: 50000,
-    staleTime: 5000,
-    refetchOnMount: false,
+    // gcTime: 50000,
+    // staleTime: 5000,
+    // refetchOnMount: false,
+    refetchOnWindowFocus: false,
   });
 
   if (isLoading) return <h4>Loading ...</h4>;

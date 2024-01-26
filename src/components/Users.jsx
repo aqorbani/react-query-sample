@@ -12,6 +12,7 @@ const Users = () => {
     queryFn: getUsers,
     gcTime: 50000,
     staleTime: 5000,
+    refetchOnMount: false,
   });
 
   if (isLoading) return <h4>Loading ...</h4>;

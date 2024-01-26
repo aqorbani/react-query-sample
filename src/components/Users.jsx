@@ -14,7 +14,8 @@ const Users = () => {
     // staleTime: 5000,
     // refetchOnMount: false,
     // refetchOnWindowFocus: false,
-    refetchInterval: 2000,
+    // refetchInterval: 2000,
+    enabled: false,
   });
 
   if (isLoading) return <h4>Loading ...</h4>;

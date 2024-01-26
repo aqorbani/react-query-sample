@@ -11,6 +11,7 @@ const Users = () => {
     queryKey: ["users"],
     queryFn: getUsers,
     gcTime: 50000,
+    staleTime: 5000,
   });
 
   if (isLoading) return <h4>Loading ...</h4>;

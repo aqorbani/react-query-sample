@@ -3,6 +3,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import Users from "./components/Users";
+import User from "./components/User";
 
 function App() {
   const queryClient = new QueryClient();
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
+        <Route path="/users/:id" element={<User />} />
       </Routes>
       <ReactQueryDevtools />
     </QueryClientProvider>

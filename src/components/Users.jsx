@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const getUsers = async () => {
@@ -26,7 +27,12 @@ const Users = () => {
   return (
     <div>
       <button onClick={refetch}>refetch</button>
-      {isSuccess && data?.data.map((item) => <p key={item.id}>{item.name}</p>)}
+      {isSuccess &&
+        data?.data.map((item) => (
+          <Link to={`/users/${item.id}`} key={item.id}>
+            <p>{item.name}</p>
+          </Link>
+        ))}
     </div>
   );
 };

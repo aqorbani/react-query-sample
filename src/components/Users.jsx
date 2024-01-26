@@ -13,7 +13,8 @@ const Users = () => {
     // gcTime: 50000,
     // staleTime: 5000,
     // refetchOnMount: false,
-    refetchOnWindowFocus: false,
+    // refetchOnWindowFocus: false,
+    refetchInterval: 2000,
   });
 
   if (isLoading) return <h4>Loading ...</h4>;

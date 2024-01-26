@@ -7,26 +7,26 @@ const Users = () => {
     return res;
   };
 
-  const { data, isLoading, isError, error, refetch } = useQuery({
-    queryKey: ["users"],
-    queryFn: getUsers,
-    // gcTime: 50000,
-    // staleTime: 5000,
-    // refetchOnMount: false,
-    // refetchOnWindowFocus: false,
-    // refetchInterval: 2000,
-    enabled: false,
-  });
+  const { data, isLoading, isError, error, isSuccess, isFetching, refetch } =
+    useQuery({
+      queryKey: ["users"],
+      queryFn: getUsers,
+      // gcTime: 50000,
+      // staleTime: 5000,
+      // refetchOnMount: false,
+      // refetchOnWindowFocus: false,
+      // refetchInterval: 2000,
+      // enabled: false,
+      onSuccess: () => alert("ok"),
+    });
 
-  // if (isLoading) return <h4>Loading ...</h4>;
-  // if (isError) return <h4>error:{error.message}</h4>;
+  if (isLoading && isFetching) return <h4>Loading ...</h4>;
+  if (isError) return <h4>error:{error.message}</h4>;
 
   return (
     <div>
       <button onClick={refetch}>refetch</button>
-      {data?.data.map((item) => (
-        <p key={item.id}>{item.name}</p>
-      ))}
+      {isSuccess && data?.data.map((item) => <p key={item.id}>{item.name}</p>)}
     </div>
   );
 };

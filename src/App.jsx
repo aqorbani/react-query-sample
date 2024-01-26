@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import { Route, Routes } from "react-router-dom";
 import Users from "./components/Users";
 import User from "./components/User";
+import Form from "./components/Form";
 
 function App() {
   const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<Users />} />
         <Route path="/users/:id" element={<User />} />
+        <Route path="/form" element={<Form />} />
       </Routes>
       <ReactQueryDevtools />
     </QueryClientProvider>
